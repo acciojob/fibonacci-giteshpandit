@@ -1,16 +1,27 @@
-function fibonacci(N) // returns the Nth Fibonacci Number
-{
-let a = 0; // Pos 1 || 1st Finonacci Number || Position 1 in the Fibo. Series 
-let b = 1;  // Pos 2 || 2nd Finonacci Number || Position 2 in the Fibo. Series 
-let c = 0; // Should be position 3
-let currentPosition = 3;
-while (currentPosition <= N) { // Exit when N+1 happens; so c would've been calculated as Position Nth in the Fibo. Series 
-    c = a + b;
-     a = b; // n-2th
-      b = c; // n-1th value
-    ++currentPosition;
+function fibonacci(num) {
+    // Handle base cases
+    if (num === 0) return 0;
+    if (num === 1) return 1;
+    
+    // Initialize the first two Fibonacci numbers
+    let a = 0; // F(0)
+    let b = 1; // F(1)
+    let fib = 0;
+
+    // Compute the Fibonacci numbers iteratively
+    for (let i = 2; i <= num; i++) {
+        fib = a + b; // F(n) = F(n-1) + F(n-2)
+        a = b;      // Update F(n-2) to the previous F(n-1)
+        b = fib;    // Update F(n-1) to the current F(n)
+    }
+    
+    return fib;
 }
-return c;
-}
+
+// Example usage
+console.log(fibonacci(0)); // Output: 0
+console.log(fibonacci(1)); // Output: 1
+console.log(fibonacci(5)); // Output: 5
+console.log(fibonacci(10)); // Output: 55
 
 
