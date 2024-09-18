@@ -8,6 +8,12 @@
 <body>
   <script>
     function fibonacci(num) {
+      // Handle the case where num is less than 1
+      if (num < 1) return -1; // or handle the invalid input as needed
+
+      // Adjust the index to match typical Fibonacci sequence where fibonacci(1) should be 0
+      num = num - 1;
+
       if (num === 0) return 0;
       if (num === 1) return 1;
       
@@ -26,6 +32,7 @@
 
     // Test cases
     console.log(fibonacci(1));  // Output: 0
+    console.log(fibonacci(2));  // Output: 1
     console.log(fibonacci(5));  // Output: 3
     console.log(fibonacci(10)); // Output: 34
     console.log(fibonacci(50)); // Output: 12586269025
